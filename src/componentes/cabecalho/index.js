@@ -9,7 +9,7 @@ export default function Cabecalho(){
             <TouchableOpacity>
             <Ionicons name="menu" size={24} color="white" />
             </TouchableOpacity>
-            <Text style ={estilo.Texto}> Jogos Épicos </Text>
+            <Text style ={estilo.Texto}> Gamer Wolrd </Text>
             <TouchableOpacity>
             <Ionicons name="ios-search-sharp" size={24} color="white" />
             </TouchableOpacity>
@@ -32,7 +32,7 @@ const estilo = StyleSheet.create({
     },
     Texto:{
         color:'white',
-        fontSize:20,
+        fontSize:25,
         fontWeight:'bold'
     }
 })

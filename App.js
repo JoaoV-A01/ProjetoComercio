@@ -2,31 +2,39 @@ import * as React from 'react';
 import { FlatList, Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import Cabecalho from './src/componentes/cabecalho';
+import Botao from './src/componentes/botao/index';
 import JOGOS from './src/dados/jogos';
+import JGOTY from './src/dados/jogosGoty';
 import Jogos from './src/componentes/destaque';
+import HARD from './src/dados/hardware';
+import Hard from './src/componentes/hardware';
+import Rodape from './src/componentes/rodape';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <Cabecalho/>
-      <Text style={styles.paragraph}>
-        Bem-vindo a nossa loja GAMER  
-      </Text>
+      
+      <Botao/>
         
       <View>
       <Text style={styles.titulo}>
-        Jogos em Destaque  
+        Jogos GOTY  
       </Text>   
         <FlatList
           horizontal = {true}
-          data = {JOGOS}
+          data = {JGOTY}
           keyExtractor = {(item) => item.id}
           renderItem = { ({ item }) => (
 
             <Jogos
               titulo = {item.nome}
               imagem = {item.imagem}
+              desconto = {item.desconto}
               valor = {item.valor}
+              dev = {item.dev}
+              dist = {item.dist}
+              
             />
           )}
         />
@@ -43,11 +51,39 @@ export default function App() {
             <Jogos
               titulo = {item.nome}
               imagem = {item.imagem}
+              desconto = {item.desconto}
+              valor = {item.valor}
+              dev = {item.dev}
+              dist = {item.dist}
+            />
+          )}
+        />
+
+        <Text style={styles.titulo}>
+        Hardware  
+        </Text>
+        <FlatList
+          horizontal={true}
+          data = {HARD}
+          keyExtractor = {(item) => item.id}
+          renderItem = { ({ item }) => (
+
+            <Hard
+              titulo = {item.nome}
+              imagem = {item.imagem}
+              desconto = {item.desconto}
               valor = {item.valor}
             />
           )}
         />
-     </View>
+      </View>
+
+      <View>
+      <Rodape>
+        
+      </Rodape>
+      </View>
+
     </View>
   );
 }
@@ -58,12 +94,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#4E74BA',
     alignItems: 'cent',
     justifyContent: 'cent',
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
   titulo: {
     color: 'white',

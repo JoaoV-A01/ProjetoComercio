@@ -2,24 +2,22 @@ import * as React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 //Criando a função e recebendo por props o titulo valor e imgagem do jogo
-export default function Jogos({ titulo, valor, imagem, desconto, dev, dist }) {
+export default function Hard({ titulo, valor, imagem, desconto }) {
     return (
-        <TouchableOpacity style={estilo.containerJogos}>
-          <Image style={estilo.images} source={require(`../../imagens/jogos/${imagem}`)}/>
+        <TouchableOpacity style={estilo.containerHard}>
+          <Image style={estilo.images} source={require(`../../imagens/hardware/${imagem}`)}/>
           <Text style={estilo.titulo}>{titulo}</Text>
           
           <View style={estilo.flex}>
             <Text style={estilo.desconto}>{desconto}</Text>
             <Text style={estilo.valor}>{valor}</Text>
           </View>
-          <Text style={estilo.texto}>{dev}</Text>
-          <Text style={estilo.texto}>{dist}</Text>
         </TouchableOpacity>
     );
 }
 const estilo = StyleSheet.create({
 
-    containerJogos: {
+    containerHard: {
         backgroundColor: "#2E446E",
         borderRadius: 5,
         marginTop: 1,
@@ -28,7 +26,7 @@ const estilo = StyleSheet.create({
         alignItems: "",
         //justifyContent: "space-between",
         width: 400,
-        height: 380,
+        height: 300,
         marginLeft: 1,
     },
     titulo: {
@@ -37,7 +35,7 @@ const estilo = StyleSheet.create({
         width: '100%',
         fontSize: 20,
         fontWeight: "bold",
-        //textAlign: 'center',
+        textAlign: 'center',
     },
     desconto: {
       color: "black",
@@ -54,15 +52,12 @@ const estilo = StyleSheet.create({
     },
     images: {
         width: "100%",
-        height: "70%",
+        height: "80%",
         borderRadius: 3,
-    },
-    texto: {
-      color: "white",
-      fontSize: 15,
     },
     flex: {
       width: "60%",
+      marginTop: 5,
       marginLeft: "43%",
       backgroundColor: "black",
       flexDirection: 'row'
